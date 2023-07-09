@@ -10,3 +10,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 service-account.json
 *.log
+.firebaserc
+database.rules.json
+firebase.json
+storage.rules
