@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getAuth, connectAuthEmulator, type User, onAuthStateChanged } from "firebase/auth";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 import { writable } from "svelte/store";
@@ -23,7 +23,8 @@ export const storage = getStorage();
 
 if (import.meta.env.MODE === 'development') {
     connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });
-    connectStorageEmulator(storage, "localhost", 9099);
+    connectFirestoreEmulator(db, "localhost", 8080)
+    connectStorageEmulator(storage, "localhost", 9199);
 }
 
 /**
